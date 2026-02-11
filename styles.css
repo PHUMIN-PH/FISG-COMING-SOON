@@ -1,0 +1,103 @@
+:root {
+  --bg-1: #020a0f;
+  --bg-2: #010f14;
+  --bg-3: #041b22;
+  --accent: #2effaa;
+  --accent-2: #008dff;
+  --text: #f3fffb;
+  --muted: #b8cec7;
+  --glass-1: rgba(12, 26, 30, 0.9);
+  --glass-2: rgba(7, 16, 18, 0.95);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  font-family: "Space Grotesk", sans-serif;
+  color: var(--text);
+  background: radial-gradient(circle at 50% -8%, rgba(5, 150, 105, 0.55), transparent 42%),
+    radial-gradient(circle at 78% 18%, rgba(0, 108, 255, 0.2), transparent 35%),
+    linear-gradient(180deg, rgba(1, 15, 20, 0.72) 0%, rgba(1, 16, 12, 0.7) 40%, rgba(1, 10, 8, 0.96) 100%),
+    linear-gradient(135deg, var(--bg-1), var(--bg-2) 50%, var(--bg-3));
+  overflow: hidden;
+}
+
+#particles {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.card {
+  position: relative;
+  z-index: 1;
+  width: min(94vw, 980px);
+  padding: 2rem;
+  border-radius: 24px;
+  background: linear-gradient(160deg, var(--glass-1), var(--glass-2)) padding-box,
+    linear-gradient(120deg, rgba(36, 211, 162, 0.48), rgba(0, 108, 255, 0.34)) border-box;
+  border: 1px solid transparent;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 22px 54px rgba(0, 0, 0, 0.5);
+  animation: rise 1s ease-out both;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(26px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.tag {
+  margin: 0;
+  font-size: 0.78rem;
+  letter-spacing: 0.23em;
+  color: var(--accent);
+}
+
+h1 {
+  margin: 0.75rem 0 0.75rem;
+  font-size: clamp(2rem, 5vw, 3.8rem);
+  line-height: 1.1;
+}
+
+.cursor {
+  display: inline-block;
+  margin-left: 0.1em;
+  color: var(--accent);
+  animation: blink 0.8s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.description {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1rem;
+  max-width: 62ch;
+}
+
+@media (max-width: 640px) {
+  .card {
+    width: min(95vw, 980px);
+    padding: 1.35rem;
+    border-radius: 18px;
+  }
+}
